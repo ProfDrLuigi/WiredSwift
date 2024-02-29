@@ -1,18 +1,9 @@
 // swift-tools-version:5.2
-//
-//  Package.swift
-//  WiredSwift
-//
-//  Created by Rafael Warnault on 17/04/2020.
-//  Copyright © 2020 Read-Write. All rights reserved.
-//
-
 import PackageDescription
 
 let package = Package(
     name: "WiredSwift",
     platforms: [
-        // Add support for all platforms starting from a specific version.
         .macOS(.v10_13),
         .iOS(.v12)
     ],
