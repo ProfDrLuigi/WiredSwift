@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -92,7 +92,6 @@
 		4C74286422DCECE800D6E6F9 /* ConnectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C74286322DCECE800D6E6F9 /* ConnectController.swift */; };
 		4C74286622DCECE900D6E6F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C74286522DCECE900D6E6F9 /* Assets.xcassets */; };
 		4C74286922DCECE900D6E6F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C74286722DCECE900D6E6F9 /* Main.storyboard */; };
-		4C75B96C24336D3600BE8857 /* CZlib in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 4C75B96B24336D3600BE8857 /* CZlib */; };
 		4C75B96D24336D7300BE8857 /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18D1230C6ECE00E2A2EC /* ServerInfo.swift */; };
 		4C75B96E24336D7300BE8857 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18D4230C741800E2A2EC /* UserInfo.swift */; };
 		4C75B96F24336D7500BE8857 /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18D1230C6ECE00E2A2EC /* ServerInfo.swift */; };
@@ -157,7 +156,6 @@
 		4C8874842434B81800A5D4A0 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8874832434B81800A5D4A0 /* BookmarkTableViewCell.swift */; };
 		4C8874872434DE9000A5D4A0 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8874862434DE9000A5D4A0 /* Reachability */; };
 		4C8874952434E98000A5D4A0 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8874902434E6D700A5D4A0 /* MessageKit.framework */; };
-		4C8874982434E99700A5D4A0 /* CZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8874972434E99700A5D4A0 /* CZlib */; };
 		4C8E98E7243B77EF00E19494 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E98E6243B77EF00E19494 /* OnboardingViewController.swift */; };
 		4C93B2E7242F9BD500A956C3 /* BBCodeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C93B2E3242F9BD500A956C3 /* BBCodeString.m */; };
 		4C93B2E8242F9BD500A956C3 /* NSMutableAttributedString+BBCodeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C93B2E6242F9BD500A956C3 /* NSMutableAttributedString+BBCodeString.m */; };
@@ -235,7 +233,6 @@
 		4CEF0AB223FD57CA0097E37E /* FilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF0AB123FD57CA0097E37E /* FilesController.swift */; };
 		4CEF0AB423FD5D580097E37E /* ConnectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF0AB323FD5D580097E37E /* ConnectionObject.swift */; };
 		4CEF0AB623FDD4DD0097E37E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF0AB523FDD4DD0097E37E /* File.swift */; };
-		4CF673782404191E00A8EDC2 /* CZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 4CF673772404191E00A8EDC2 /* CZlib */; };
 		4CFA18C2230B07D100E2A2EC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18C1230B07D100E2A2EC /* String.swift */; };
 		4CFA18C4230B07E500E2A2EC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18C3230B07E500E2A2EC /* Data.swift */; };
 		4CFA18C5230B085D00E2A2EC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA18C1230B07D100E2A2EC /* String.swift */; };
@@ -555,7 +552,6 @@
 			files = (
 				4CDE91B6244A081700ED9695 /* LNZTreeView.framework in Frameworks */,
 				4C88747C243483A100A5D4A0 /* JGProgressHUD in Frameworks */,
-				4C8874982434E99700A5D4A0 /* CZlib in Frameworks */,
 				4C8874952434E98000A5D4A0 /* MessageKit.framework in Frameworks */,
 				4C75BA362433938400BE8857 /* KeychainAccess in Frameworks */,
 				4C6656B32434F7120022E7D7 /* WiredSwift_iOS.framework in Frameworks */,
@@ -595,7 +591,6 @@
 			files = (
 				4C75B9AB2433722900BE8857 /* AEXML in Frameworks */,
 				4C28705D2449BFD000E792AC /* Gzip in Frameworks */,
-				4CF673782404191E00A8EDC2 /* CZlib in Frameworks */,
 				4C28705F2449BFDA00E792AC /* SocketSwift in Frameworks */,
 				4C2870582449BF4000E792AC /* CryptorRSA in Frameworks */,
 				4C2870562449BF4000E792AC /* CryptoSwift in Frameworks */,
@@ -606,7 +601,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C75B96C24336D3600BE8857 /* CZlib in Frameworks */,
 				4C75B9A3243370C900BE8857 /* SocketSwift in Frameworks */,
 				4C2870612449C02C00E792AC /* Gzip in Frameworks */,
 				4C75B9A92433717B00BE8857 /* AEXML in Frameworks */,
@@ -1150,7 +1144,6 @@
 				4C75BA352433938400BE8857 /* KeychainAccess */,
 				4C88747B243483A100A5D4A0 /* JGProgressHUD */,
 				4C8874862434DE9000A5D4A0 /* Reachability */,
-				4C8874972434E99700A5D4A0 /* CZlib */,
 			);
 			productName = "Wired iOS";
 			productReference = 4C75B9B0243374D900BE8857 /* Wired.app */;
@@ -1225,7 +1218,6 @@
 			);
 			name = WiredSwift;
 			packageProductDependencies = (
-				4CF673772404191E00A8EDC2 /* CZlib */,
 				4C75B9AA2433722900BE8857 /* AEXML */,
 				4C2870552449BF4000E792AC /* CryptoSwift */,
 				4C2870572449BF4000E792AC /* CryptorRSA */,
@@ -1251,7 +1243,6 @@
 			);
 			name = WiredSwift_iOS;
 			packageProductDependencies = (
-				4C75B96B24336D3600BE8857 /* CZlib */,
 				4C75B99F2433705C00BE8857 /* CryptoSwift */,
 				4C75B9A2243370C900BE8857 /* SocketSwift */,
 				4C75B9A5243370F700BE8857 /* CryptorRSA */,
@@ -1332,7 +1323,6 @@
 			);
 			mainGroup = 4C74285522DCECE800D6E6F9;
 			packageReferences = (
-				4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */,
 				4C75B99E2433705C00BE8857 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				4C75B9A1243370C900BE8857 /* XCRemoteSwiftPackageReference "Socket.swift" */,
 				4C75B9A4243370F700BE8857 /* XCRemoteSwiftPackageReference "BlueRSA" */,
@@ -2578,14 +2568,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/IBM-Swift/CZlib.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2629,11 +2611,6 @@
 			package = 4C2870592449BFBA00E792AC /* XCRemoteSwiftPackageReference "GzipSwift" */;
 			productName = Gzip;
 		};
-		4C75B96B24336D3600BE8857 /* CZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */;
-			productName = CZlib;
-		};
 		4C75B99F2433705C00BE8857 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4C75B99E2433705C00BE8857 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
@@ -2673,16 +2650,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4C8874852434DE9000A5D4A0 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
-		};
-		4C8874972434E99700A5D4A0 /* CZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */;
-			productName = CZlib;
-		};
-		4CF673772404191E00A8EDC2 /* CZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */;
-			productName = CZlib;
 		};
 /* End XCSwiftPackageProductDependency section */
 
