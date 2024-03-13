@@ -16,7 +16,7 @@ let package = Package(
         .package(name: "AEXML", url: "https://github.com/tadija/AEXML.git", from: "4.7.0"),
         .package(name: "CryptoSwift", url: "https://github.com/krzyzanowskim/CryptoSwift.git", from: "1.8.1"),
         .package(name: "CryptorRSA", url: "https://github.com/IBM-Swift/BlueRSA", from: "1.0.201"),
-        .package(name: "CZlib", url: "https://github.com/IBM-Swift/CZlib.git", from: "0.1.2"),
+        .package(name: "CZlib", url: "https://github.com/Kitura/CZlib.git", from: "0.1.2"),
         .package(name: "Gzip", url: "https://github.com/1024jp/GzipSwift", from: "6.0.1"),
         .package(name: "SocketSwift", url: "https://github.com/BiAtoms/Socket.swift.git", from: "2.4.0"),
     ],
