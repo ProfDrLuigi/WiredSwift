@@ -499,6 +499,6 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
         }
         
         downloadButton.isEnabled = self.selectedFile() != nil && !self.selectedFile()!.isFolder()
-        uploadButton.isEnabled = self.selectedFile() != nil && self.selectedFile()!.isFolder() // is upload folder
+        uploadButton.isEnabled// = self.selectedFile() != nil && self.selectedFile()!.isFolder() // is upload folder
     }
 }
