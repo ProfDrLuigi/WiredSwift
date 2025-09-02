@@ -70,7 +70,7 @@ public class TransfersController {
     public static let shared = TransfersController()
     
     //var transfers:[Transfer] = []
-    let semaphore = DispatchSemaphore(value: 2)
+    let semaphore = DispatchSemaphore(value: 1)
     var queue:DispatchQueue = DispatchQueue(label: "transfers-queue", qos: .utility, attributes: .concurrent)
     
     private init() {
@@ -125,7 +125,8 @@ public class TransfersController {
             let results = try context.fetch(fetchRequest)
             let transfers = results as! [Transfer]
             
-            return transfers
+            // Kopie der Transfers zurückgeben
+            return Array(transfers)
             
         } catch let error as NSError {
             print("Could not fetch \(error)")

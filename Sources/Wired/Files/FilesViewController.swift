@@ -94,7 +94,13 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
             self.downloadFile(file)
         }
     }
-    
+
+    private let uploadQueue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1 // Nur ein Upload gleichzeitig
+        return queue
+    }()
+
     @IBAction func upload(_ sender: Any) {
         var file = selectedFile()
 
@@ -114,7 +120,7 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
 
             openPanel.beginSheetModal(for: self.view.window!) { (response) in
                 if response == .OK, let selectedURL = openPanel.url {
-                    DispatchQueue.global(qos: .userInitiated).async {
+                    self.uploadQueue.addOperation {
                         var success = false
                         if selectedURL.hasDirectoryPath {
                             success = TransfersController.shared.uploadDirectory(selectedURL, toDirectory: file!)
