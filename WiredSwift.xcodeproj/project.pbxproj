@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A8BCF942E674EBE007C1376 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8BCF932E674EBE007C1376 /* AEXML */; };
 		2A8E9E6524333AB5005B5261 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6324333AB5005B5261 /* InfoPlist.strings */; };
 		2A8E9E6824333AB5005B5261 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6624333AB5005B5261 /* InfoPlist.strings */; };
 		2A8E9E6B24333AB5005B5261 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6924333AB5005B5261 /* Localizable.strings */; };
 		2A8E9E6C24333C93005B5261 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6E24333C93005B5261 /* GeneralPreferenceViewController.xib */; };
 		2A8E9E7024333E08005B5261 /* ChatPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E7224333E08005B5261 /* ChatPreferenceViewController.xib */; };
 		2A8E9E752433511B005B5261 /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E772433511B005B5261 /* AdvancedPreferenceViewController.xib */; };
-		2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
-		2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AE0C69F244B83E10021BE28 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C69E244B83E10021BE28 /* Preferences */; };
 		2AE0C6A5244B84220021BE28 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C6A4244B84220021BE28 /* KeychainAccess */; };
 		2AE0C6A7244B843E0021BE28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C6A6244B843E0021BE28 /* Reachability */; };
@@ -327,7 +326,6 @@
 			files = (
 				4CE2AA54243350160072E0B3 /* (null) in Embed Frameworks */,
 				4C9C5CDC2430DF2F007B6CF0 /* WiredSwift.framework in Embed Frameworks */,
-				2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,7 +539,7 @@
 				4CD0205422DF04BD0008B36C /* WiredSwift.framework in Frameworks */,
 				2AE0C6A5244B84220021BE28 /* KeychainAccess in Frameworks */,
 				2AE0C69F244B83E10021BE28 /* Preferences in Frameworks */,
-				2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */,
+				2A8BCF942E674EBE007C1376 /* AEXML in Frameworks */,
 				2AE0C6A7244B843E0021BE28 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1118,6 +1116,7 @@
 				2AE0C69E244B83E10021BE28 /* Preferences */,
 				2AE0C6A4244B84220021BE28 /* KeychainAccess */,
 				2AE0C6A6244B843E0021BE28 /* Reachability */,
+				2A8BCF932E674EBE007C1376 /* AEXML */,
 			);
 			productName = "Wired 3";
 			productReference = 4C74285E22DCECE800D6E6F9 /* Wired.app */;
@@ -2571,6 +2570,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A8BCF932E674EBE007C1376 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AEXML;
+		};
 		2AE0C69E244B83E10021BE28 /* Preferences */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2AE0C69D244B83E10021BE28 /* XCRemoteSwiftPackageReference "Preferences" */;

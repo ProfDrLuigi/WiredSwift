@@ -42,27 +42,55 @@ class InfosViewController: ConnectionViewController, ConnectionDelegate {
     
     
     private func updateView() {
-        if self.connection != nil {
-            self.serverNameLabel.stringValue = self.connection.serverInfo.serverName
-            self.serverDescriptionLabel.stringValue = self.connection.serverInfo.serverDescription
-            self.versionLabel.stringValue = "\(self.connection.serverInfo.applicationName!) \(self.connection.serverInfo.applicationVersion!) on \(self.connection.serverInfo.osName!) \(self.connection.serverInfo.osVersion!) (\(self.connection.serverInfo.arch!))"
-            
-            self.protocolLabel.stringValue = "\(self.connection.socket.remoteName!) \(self.connection.socket.remoteVersion!)"
-            self.cipherLabel.stringValue = "\(P7Socket.CipherType.pretty(self.connection.socket.cipherType))"
-            self.urlLabel.stringValue = "wiredp7://\(self.connection.url.hostname):\(self.connection.url.port)"
-            let unsupported = NSLocalizedString("Unsupported (yet)", comment: "")
-            self.compressionLabel.stringValue = unsupported
-            
-            let image = NSImage(data: self.connection.serverInfo.serverBanner)
-            self.bannerImage.image = image
-            
-            if let string = AppDelegate.timeIntervalFormatter.string(from: Date().timeIntervalSince(self.connection.serverInfo.startTime)) {
-                self.uptimeLabel.stringValue = string
-            }
-            
-            self.filesLabel.stringValue = "\(self.connection.serverInfo!.filesCount!)"
-            self.sizeLabel.stringValue = AppDelegate.byteCountFormatter.string(fromByteCount: Int64(self.connection.serverInfo.filesSize))
+        guard let connection = self.connection,
+              let serverInfo = connection.serverInfo else { return }
+
+        self.serverNameLabel.stringValue = serverInfo.serverName
+        self.serverDescriptionLabel.stringValue = serverInfo.serverDescription
+
+        if let appName = serverInfo.applicationName,
+           let appVersion = serverInfo.applicationVersion,
+           let osName = serverInfo.osName,
+           let osVersion = serverInfo.osVersion,
+           let arch = serverInfo.arch {
+            self.versionLabel.stringValue = "\(appName) \(appVersion) on \(osName) \(osVersion) (\(arch))"
+        } else {
+            self.versionLabel.stringValue = "-"
         }
+
+        if let remoteName = connection.socket.remoteName,
+           let remoteVersion = connection.socket.remoteVersion {
+            self.protocolLabel.stringValue = "\(remoteName) \(remoteVersion)"
+        } else {
+            self.protocolLabel.stringValue = "-"
+        }
+
+        self.cipherLabel.stringValue = "\(P7Socket.CipherType.pretty(connection.socket.cipherType))"
+        self.urlLabel.stringValue = "wiredp7://\(connection.url.hostname):\(connection.url.port)"
+        let unsupported = NSLocalizedString("Unsupported (yet)", comment: "")
+        self.compressionLabel.stringValue = unsupported
+
+        if let bannerData = serverInfo.serverBanner,
+           let image = NSImage(data: bannerData) {
+            self.bannerImage.image = image
+        } else {
+            self.bannerImage.image = nil
+        }
+
+        if let startTime = serverInfo.startTime {
+            let interval = Date().timeIntervalSince(startTime)
+            self.uptimeLabel.stringValue = AppDelegate.timeIntervalFormatter.string(from: interval) ?? "-"
+        } else {
+            self.uptimeLabel.stringValue = "-"
+        }
+
+        if let filesCount = serverInfo.filesCount {
+            self.filesLabel.stringValue = "\(filesCount)"
+        } else {
+            self.filesLabel.stringValue = "-"
+        }
+
+        self.sizeLabel.stringValue = AppDelegate.byteCountFormatter.string(fromByteCount: Int64(serverInfo.filesSize))
     }
     
     

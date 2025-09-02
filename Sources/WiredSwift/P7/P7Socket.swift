@@ -11,7 +11,7 @@ import SocketSwift
 import CryptorRSA
 import CryptoSwift
 import CommonCrypto
-import CZlib
+//import CZlib
 
 
 
@@ -90,8 +90,8 @@ public class P7Socket: NSObject {
     private var publicKey: String!
     private var dropped:Data = Data()
     
-    private var deflateStream:z_stream = zlib.z_stream()
-    private var inflateStream:z_stream = zlib.z_stream()
+    //private var deflateStream:z_stream = zlib.z_stream()
+    //private var inflateStream:z_stream = zlib.z_stream()
     
     public init(hostname: String, port: Int, spec: P7Spec) {
         self.hostname = hostname
@@ -135,9 +135,6 @@ public class P7Socket: NSObject {
                     return false
                 }
 
-                if self.compression != .NONE {
-                    self.configureCompression()
-                }
 
                 if self.checksum != .NONE {
                     self.configureChecksum()
@@ -724,32 +721,7 @@ public class P7Socket: NSObject {
     }
     
     
-    private func configureCompression() {
-        if self.compression == .DEFLATE {
-            var err = zlib.deflateInit_(&self.deflateStream, Z_DEFAULT_COMPRESSION, ZLIB_VERSION, Int32(MemoryLayout<z_stream>.size))
-            
-            self.deflateStream.data_type = Z_UNKNOWN
-            
-            if err != Z_OK {
-                Logger.error("Cannot init Zlib")
-                
-                return
-            }
-            
-            err = zlib.inflateInit_(&self.inflateStream, ZLIB_VERSION, Int32(MemoryLayout<z_stream>.size))
-            
-            if err != Z_OK {
-                Logger.error("Cannot init Zlib")
-                
-                return
-            }
-            
-            self.compressionEnabled = true
-            
-        } else {
-            self.compressionEnabled = false
-        }
-    }
+    
     
     
     private func configureChecksum() {
