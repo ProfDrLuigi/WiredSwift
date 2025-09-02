@@ -449,11 +449,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, UNUserNotifi
     public static func updateValueOfTab(forConnection connection:Connection) {
         let total = unreadChatMessages + unreadPrivateMessages
         
-        if let window = AppDelegate.windowController(forConnection: connection)?.window as? ConnectionWindow {
+        if let window = AppDelegate.windowController(forConnection: connection)?.window as? ConnectionWindow,
+           let serverName = connection.serverInfo?.serverName {
             if total > 0 {
-                window.tab.attributedTitle = NSAttributedString(string: "(\(total)) \(connection.serverInfo.serverName!)")
+                window.tab.attributedTitle = NSAttributedString(string: "(\(total)) \(serverName)")
             } else {
-                window.tab.attributedTitle = NSAttributedString(string: "\(connection.serverInfo.serverName!)")
+                window.tab.attributedTitle = NSAttributedString(string: "\(serverName)")
             }
         }
     }

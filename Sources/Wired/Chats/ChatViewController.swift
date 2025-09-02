@@ -256,7 +256,11 @@ class ChatViewController: ConnectionViewController, ConnectionDelegate, NSTextFi
             let disconnected = NSLocalizedString("Disconnected...", comment: "")
             self.chatInput.placeholderString = disconnected
             let disconnectedfrom = NSLocalizedString("Disconnected from", comment: "")
-            self.addMessage("<< " + disconnectedfrom + " " + "\(self.connection.serverInfo.serverName!) >>")
+            if let serverName = self.connection.serverInfo?.serverName {
+                self.addMessage("<< " + disconnectedfrom + " \(serverName) >>")
+            } else {
+                self.addMessage("<< " + disconnectedfrom + " >>")
+            }
             
             if UserDefaults.standard.bool(forKey: "WSAutoReconnect") {
                 if !self.connection.connectionWindowController!.manualyDisconnected {
@@ -272,7 +276,11 @@ class ChatViewController: ConnectionViewController, ConnectionDelegate, NSTextFi
             self.chatInput.isEditable = true
             self.chatInput.placeholderString = "Type message here"
             let reconnectedto = NSLocalizedString("Auto-reconnecting to", comment: "")
-            self.addMessage("<< " + reconnectedto + " \(self.connection.serverInfo.serverName!) >>")
+            if let serverName = self.connection.serverInfo?.serverName {
+                self.addMessage("<< " + reconnectedto + " \(serverName) >>")
+            } else {
+                self.addMessage("<< " + reconnectedto + " >>")
+            }
         }
     }
     
