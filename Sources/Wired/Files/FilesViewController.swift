@@ -97,27 +97,35 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
     
     @IBAction func upload(_ sender: Any) {
         var file = selectedFile()
-        
+
         if file == nil {
             if UserDefaults.standard.integer(forKey: "WSSelectedFilesViewType") == 0 {
                 file = self.currentRoot
             }
         }
-        
-        if file!.isFolder() {
+
+        if file?.isFolder() == true {
             let openPanel = NSOpenPanel()
             openPanel.canChooseFiles = true
+            openPanel.canChooseDirectories = true
             openPanel.allowsMultipleSelection = false
-            openPanel.canChooseDirectories = false
             openPanel.canCreateDirectories = false
             openPanel.title = title
-        
-            openPanel.beginSheetModal(for:self.view.window!) { (response) in
-                if response == .OK {
-                    let selectedPath = openPanel.url!.path
 
-                    if TransfersController.shared.upload(selectedPath, toDirectory:file!) {
-                        AppDelegate.shared.showTransfers(self)
+            openPanel.beginSheetModal(for: self.view.window!) { (response) in
+                if response == .OK, let selectedURL = openPanel.url {
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        var success = false
+                        if selectedURL.hasDirectoryPath {
+                            success = TransfersController.shared.uploadDirectory(selectedURL, toDirectory: file!)
+                        } else {
+                            success = TransfersController.shared.upload(selectedURL.path, toDirectory: file!)
+                        }
+                        if success {
+                            DispatchQueue.main.async {
+                                AppDelegate.shared.showTransfers(self)
+                            }
+                        }
                     }
                 }
                 openPanel.close()

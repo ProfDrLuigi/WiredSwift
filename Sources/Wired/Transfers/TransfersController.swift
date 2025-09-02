@@ -19,8 +19,51 @@ extension Notification.Name {
 }
 
 
+extension TransfersController {
+    /// Lädt ein lokales Verzeichnis inkl. Hauptordner rekursiv in das angegebene Remote-Verzeichnis hoch.
+    @discardableResult
+    public func uploadDirectory(_ directoryURL: URL, toDirectory remoteDir: File) -> Bool {
+        let fileManager = FileManager.default
+        let mainFolderName = directoryURL.lastPathComponent
+        let remoteRootPath = (remoteDir.path as NSString).appendingPathComponent(mainFolderName)
+        let remoteRoot = File(remoteRootPath, connection: remoteDir.connection)
 
+        // Hauptordner auf dem Server anlegen
+        _ = self.createRemoteDirectory(remoteRootPath, in: remoteDir)
 
+        guard let enumerator = fileManager.enumerator(at: directoryURL, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles]) else {
+            return false
+        }
+
+        for case let fileURL as URL in enumerator {
+            let relativePath = fileURL.path.replacingOccurrences(of: directoryURL.path, with: "")
+            let remotePath = (remoteRootPath as NSString).appendingPathComponent(relativePath)
+            var isDir: ObjCBool = false
+            if fileManager.fileExists(atPath: fileURL.path, isDirectory: &isDir) {
+                if isDir.boolValue {
+                    _ = self.createRemoteDirectory(remotePath, in: remoteRoot)
+                } else {
+                    let parentRemoteDir = File((remotePath as NSString).deletingLastPathComponent, connection: remoteDir.connection)
+                    _ = self.upload(fileURL.path, toDirectory: parentRemoteDir)
+                }
+            }
+        }
+        return true
+    }
+}
+extension TransfersController {
+    /// Legt ein Verzeichnis auf dem Server an.
+    @discardableResult
+    public func createRemoteDirectory(_ path: String, in parent: File) -> Bool {
+        let message = P7Message(withName: "wired.file.create_directory", spec: parent.connection.spec)
+        message.addParameter(field: "wired.file.path", value: path)
+        // Optional: parent-Parameter, falls benötigt
+        // message.addParameter(field: "wired.file.parent", value: parent.path)
+
+        let result = parent.connection.send(message: message)
+        return result != nil
+    }
+}
 
 
 public class TransfersController {

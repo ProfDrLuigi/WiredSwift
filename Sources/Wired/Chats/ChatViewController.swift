@@ -302,12 +302,20 @@ class ChatViewController: ConnectionViewController, ConnectionDelegate, NSTextFi
     }
     
     func connectionDidReceiveError(connection: Connection, message: P7Message) {
-        if let specError = spec.error(forMessage: message), let message = specError.name {
+        if let specError = spec.error(forMessage: message), let errorName = specError.name {
             let alert = NSAlert()
             let wiredalert = NSLocalizedString("Wired Alert", comment: "")
             alert.messageText = wiredalert
             let wirederror = NSLocalizedString("Wired Error:", comment: "")
-            alert.informativeText = wirederror + " \(message)"
+            alert.informativeText = wirederror + " \(errorName)"
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+        } else {
+            // Optional: Fallback-Fehleranzeige
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Wired Alert", comment: "")
+            alert.informativeText = NSLocalizedString("Unbekannter Fehler", comment: "")
             alert.alertStyle = .warning
             alert.addButton(withTitle: "OK")
             alert.runModal()

@@ -31,13 +31,10 @@ class TransfersViewController: NSViewController, NSTableViewDataSource, NSTableV
     
     
     @objc func didUpdateTransfers(_ notification: Notification) {
-        if let transfer = notification.object as? Transfer {
-            transfersTableView.reloadData()
-            // maybe better to reload at index only
+        DispatchQueue.main.async {
+            self.transfersTableView.reloadData()
+            self.validate()
         }
-        
-        transfersTableView.reloadData()
-        self.validate()
     }
     
     
