@@ -17,18 +17,19 @@ public class ConnectionWindowController: NSWindowController, NSToolbarDelegate, 
     
     public var manualyDisconnected = false
     
-    public static func connectConnectionWindowController(withBookmark bookmark:Bookmark) -> ConnectionWindowController? {
+    public static func connectConnectionWindowController(withBookmark bookmark: Bookmark) -> ConnectionWindowController? {
         if let cwc = AppDelegate.windowController(forBookmark: bookmark) {
             if let tabGroup = cwc.window?.tabGroup {
                 tabGroup.selectedWindow = cwc.window
             }
             return cwc
         }
-                
+        
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle.main)
         if let connectionWindowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ConnectionWindowController")) as? ConnectionWindowController {
             let url = bookmark.url()
             
+            // Annahme: spec ist im Scope verfügbar, ggf. anpassen!
             connectionWindowController.connection = ServerConnection(withSpec: spec, delegate: connectionWindowController as? ConnectionDelegate)
             connectionWindowController.connection.nick = UserDefaults.standard.string(forKey: "WSUserNick") ?? connectionWindowController.connection.nick
             connectionWindowController.connection.status = UserDefaults.standard.string(forKey: "WSUserStatus") ?? connectionWindowController.connection.status
@@ -42,16 +43,16 @@ public class ConnectionWindowController: NSWindowController, NSToolbarDelegate, 
             DispatchQueue.global().async {
                 if connectionWindowController.connection.connect(withUrl: url) == true {
                     DispatchQueue.main.async {
-                        if let bannerItem = connectionWindowController.toolbarItem(withIdentifier: "Banner") {
-                            if let imageView = bannerItem.view as? NSImageView {
-                                imageView.image = NSImage(data: connectionWindowController.connection.serverInfo.serverBanner)
-                            }
+                        if let bannerItem = connectionWindowController.toolbarItem(withIdentifier: "Banner"),
+                           let imageView = bannerItem.view as? NSImageView,
+                           let serverBannerData = connectionWindowController.connection.serverInfo?.serverBanner,
+                           let image = NSImage(data: serverBannerData) {
+                            imageView.image = image
                         }
                         
                         ConnectionsController.shared.addConnection(connectionWindowController.connection)
                         
                         connectionWindowController.attach(connection: connectionWindowController.connection)
-                        //connectionWindowController.windowDidLoad() // not good!
                         connectionWindowController.showWindow(connectionWindowController)
                     }
                 } else {

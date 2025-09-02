@@ -719,7 +719,7 @@ extension ChatViewController: MessageCellDelegate {
             return UIColor.clear
         }
         
-        return self.messagesCollectionView.messagesDataSource!.isFromCurrentSender(message: message) ? UIColor.outgoingGreen : UIColor.incomingGray
+        return self.messagesCollectionView.messagesDataSource!.isFromCurrentSender(message: message) ? UIColor.outgoingColor : UIColor.incomingColor
     }
     
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {

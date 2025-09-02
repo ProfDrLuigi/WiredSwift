@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    static var incomingGray: UIColor {
+    static var incomingColor: UIColor {
         if #available(iOS 13, *) {
             return UIColor.systemGray5
         } else {
@@ -18,7 +18,7 @@ extension UIColor {
     }
 
 
-    static var outgoingGreen: UIColor {
+    static var outgoingColor: UIColor {
         if #available(iOS 13, *) {
             return UIColor.systemGreen
         } else {
