@@ -401,7 +401,7 @@ public class P7Socket: NSObject {
     
     
     
-    public func readOOB(timeout:TimeInterval = 1.0) -> Data? {
+    public func readOOB(timeout: TimeInterval = 1.0) -> Data? {
         var messageData = Data()
         var lengthBuffer = [Byte](repeating: 0, count: 4)
         let bytesRead = self.read(&lengthBuffer, maxLength: 4, timeout: timeout)
@@ -412,11 +412,14 @@ public class P7Socket: NSObject {
                 return nil
             }
             
-            messageData = try! self.readData(size: Int(messageLength))
+            do {
+                messageData = try self.readData(size: Int(messageLength))
+            } catch {
+                Logger.error("readData failed: \(error.localizedDescription)")
+                return nil
+            }
             
-            // data to message object
             if messageData.count > 0 {
-                // decryption
                 if self.encryptionEnabled {
                     guard let decryptedMessageData = self.sslCipher.decrypt(data: messageData) else {
                         Logger.error("Cannot decrypt data")
@@ -424,25 +427,22 @@ public class P7Socket: NSObject {
                     }
                     messageData = decryptedMessageData
                 }
-                     
-                // inflate
+                
                 if self.compressionEnabled {
                     guard let inflatedMessageData = self.inflate(messageData) else {
                         Logger.error("Cannot inflate data")
                         return nil
-                        
                     }
                     messageData = inflatedMessageData
                 }
                 
                 return messageData
             }
-        }
-        else {
+        } else {
             Logger.error("Nothing read, abort")
         }
         
-        return messageData
+        return nil
     }
     
     
