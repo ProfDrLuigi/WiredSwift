@@ -45,7 +45,7 @@
                     </columns>
                     <gridCells>
                         <gridCell row="ZuZ-YE-eNB" column="Y0T-SA-tcl" id="81O-DL-BgW">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jk9-9f-KWO">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jk9-9f-KWO">
                                 <rect key="frame" x="-2" y="44" width="73" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Filename:" id="QLR-2n-dGV">
                                     <font key="font" metaFont="smallSystemBold"/>
@@ -55,7 +55,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="ZuZ-YE-eNB" column="3fV-A1-Cms" id="l7K-Lx-gNT">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZXp-gR-1yM">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZXp-gR-1yM">
                                 <rect key="frame" x="76" y="44" width="103" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="-" id="oQz-lR-hTy">
                                     <font key="font" metaFont="smallSystem"/>
@@ -65,7 +65,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="WIG-Pt-541" column="Y0T-SA-tcl" id="Iei-Z0-PDQ">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-Lz-Mp5">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-Lz-Mp5">
                                 <rect key="frame" x="-2" y="22" width="73" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Type:" id="Roy-Cg-scB">
                                     <font key="font" metaFont="smallSystemBold"/>
@@ -75,7 +75,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="WIG-Pt-541" column="3fV-A1-Cms" id="RuK-WF-xqH">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U0i-Ng-Iww">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U0i-Ng-Iww">
                                 <rect key="frame" x="76" y="22" width="103" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="-" id="wZ7-r9-f6e">
                                     <font key="font" metaFont="smallSystem"/>
@@ -85,7 +85,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="0lt-HZ-BnC" column="Y0T-SA-tcl" id="iau-G7-uCN">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uUg-5F-kjP">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uUg-5F-kjP">
                                 <rect key="frame" x="-2" y="0.0" width="73" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="SIze:" id="llS-sH-ohb">
                                     <font key="font" metaFont="smallSystemBold"/>
@@ -95,7 +95,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="0lt-HZ-BnC" column="3fV-A1-Cms" id="Ro4-Wv-Pl2">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oDN-PI-kHO">
+                            <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oDN-PI-kHO">
                                 <rect key="frame" x="76" y="0.0" width="103" height="14"/>
                                 <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="0 MB" id="jc1-sa-X3h">
                                     <font key="font" metaFont="smallSystem"/>
