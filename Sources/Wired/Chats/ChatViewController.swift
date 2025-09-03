@@ -529,5 +529,5 @@ class ChatViewController: ConnectionViewController, ConnectionDelegate, NSTextFi
         self.messages.removeAll()
         self.messagesTableView.reloadData()
     }
-    
+
 }

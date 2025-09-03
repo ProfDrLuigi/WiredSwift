@@ -4303,8 +4303,8 @@ DQ
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="F88-U6-4bi">
                                 <rect key="frame" x="0.0" y="0.0" width="726" height="49"/>
                                 <subviews>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="LkX-2A-rof">
-                                        <rect key="frame" x="20" y="14" width="653" height="22"/>
+                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkX-2A-rof">
+                                        <rect key="frame" x="20" y="14" width="634" height="22"/>
                                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" placeholderString="Type message here" bezelStyle="round" id="Ai5-Uu-gAV">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -4315,7 +4315,7 @@ DQ
                                         </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BDe-iW-bJl">
-                                        <rect key="frame" x="681" y="14" width="25" height="23"/>
+                                        <rect key="frame" x="656" y="14" width="25" height="23"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="Smileys" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="hcC-58-NKd">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -4328,13 +4328,29 @@ DQ
                                             <action selector="showEmojis:" target="skH-xe-eYW" id="eCl-Ql-bFC"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CMQ-af-BHd">
+                                        <rect key="frame" x="689" y="12" width="25" height="24"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="ClearChat" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="SXV-5G-QNh">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="HWr-p4-xhf"/>
+                                            <constraint firstAttribute="width" constant="25" id="L6W-AB-m8b"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="clearMessages:" target="skH-xe-eYW" id="o2f-6H-Ro2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="CMQ-af-BHd" firstAttribute="leading" secondItem="BDe-iW-bJl" secondAttribute="trailing" constant="8" symbolic="YES" id="5a3-mL-taR"/>
                                     <constraint firstItem="BDe-iW-bJl" firstAttribute="leading" secondItem="LkX-2A-rof" secondAttribute="trailing" constant="8" id="7Bn-rn-ZMe"/>
                                     <constraint firstItem="BDe-iW-bJl" firstAttribute="top" secondItem="F88-U6-4bi" secondAttribute="top" constant="12" id="7Ru-1g-Mm7"/>
+                                    <constraint firstItem="LkX-2A-rof" firstAttribute="top" secondItem="CMQ-af-BHd" secondAttribute="top" id="SJM-BW-Thl"/>
                                     <constraint firstAttribute="bottom" secondItem="LkX-2A-rof" secondAttribute="bottom" constant="14" id="nkd-4a-Lq0"/>
                                     <constraint firstItem="LkX-2A-rof" firstAttribute="top" secondItem="F88-U6-4bi" secondAttribute="top" constant="13" id="snz-wh-ZLE"/>
-                                    <constraint firstAttribute="trailing" secondItem="BDe-iW-bJl" secondAttribute="trailing" constant="20" id="wrm-4R-2wR"/>
+                                    <constraint firstAttribute="trailing" secondItem="BDe-iW-bJl" secondAttribute="trailing" constant="45" id="wrm-4R-2wR"/>
                                     <constraint firstItem="LkX-2A-rof" firstAttribute="leading" secondItem="F88-U6-4bi" secondAttribute="leading" constant="20" id="yTI-IS-Gw2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -4384,7 +4400,7 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ovw-RS-Cjt"/>
+        <segue reference="Grk-AN-qBx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Boards" width="25" height="25"/>

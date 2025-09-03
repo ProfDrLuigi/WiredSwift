@@ -369,6 +369,8 @@ class PrivateMessagesViewController: ConnectionViewController, ConnectionDelegat
         return view
     }
     
-
-
+    @IBAction func clearMessages(_ sender: Any) {
+        self.conversation?.messages = NSOrderedSet()
+           self.messagesTableView.reloadData()
+    }
 }
