@@ -385,7 +385,11 @@ public class Connection: NSObject {
         #if os(iOS)
         message.addParameter(field: "wired.info.arch", value: "armv7")
         #elseif os(macOS)
-        message.addParameter(field: "wired.info.arch", value: "x86_64")
+            #if arch(arm64)
+            message.addParameter(field: "wired.info.arch", value: "arm64")
+            #else
+            message.addParameter(field: "wired.info.arch", value: "x86_64")
+            #endif
         #else
         message.addParameter(field: "wired.info.arch", value: "x86_64")
         #endif

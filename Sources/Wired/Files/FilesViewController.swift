@@ -316,7 +316,7 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
                     formatter.dateStyle = .short
                     formatter.timeStyle = .short
                     view?.textField?.stringValue = formatter.string(from: createdDate)
-                } 
+                }
             }
             else if tableColumn?.identifier.rawValue == "Type" {
                 view?.imageView?.image = nil
