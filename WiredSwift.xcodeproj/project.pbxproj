@@ -14,6 +14,7 @@
 		2A8E9E6C24333C93005B5261 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6E24333C93005B5261 /* GeneralPreferenceViewController.xib */; };
 		2A8E9E7024333E08005B5261 /* ChatPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E7224333E08005B5261 /* ChatPreferenceViewController.xib */; };
 		2A8E9E752433511B005B5261 /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E772433511B005B5261 /* AdvancedPreferenceViewController.xib */; };
+		2AABAE832E682BC100F13A84 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 2AABAE822E682BC100F13A84 /* Sparkle */; };
 		2AE0C69F244B83E10021BE28 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C69E244B83E10021BE28 /* Preferences */; };
 		2AE0C6A5244B84220021BE28 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C6A4244B84220021BE28 /* KeychainAccess */; };
 		2AE0C6A7244B843E0021BE28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE0C6A6244B843E0021BE28 /* Reachability */; };
@@ -535,6 +536,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AABAE832E682BC100F13A84 /* Sparkle in Frameworks */,
 				4CE2AA55243350190072E0B3 /* (null) in Frameworks */,
 				4CD0205422DF04BD0008B36C /* WiredSwift.framework in Frameworks */,
 				2AE0C6A5244B84220021BE28 /* KeychainAccess in Frameworks */,
@@ -1117,6 +1119,7 @@
 				2AE0C6A4244B84220021BE28 /* KeychainAccess */,
 				2AE0C6A6244B843E0021BE28 /* Reachability */,
 				2A8BCF932E674EBE007C1376 /* AEXML */,
+				2AABAE822E682BC100F13A84 /* Sparkle */,
 			);
 			productName = "Wired 3";
 			productReference = 4C74285E22DCECE800D6E6F9 /* Wired.app */;
@@ -1331,6 +1334,7 @@
 				4C8874852434DE9000A5D4A0 /* XCRemoteSwiftPackageReference "Reachability" */,
 				4C2870592449BFBA00E792AC /* XCRemoteSwiftPackageReference "GzipSwift" */,
 				2AE0C69D244B83E10021BE28 /* XCRemoteSwiftPackageReference "Preferences" */,
+				2AABAE812E682BC100F13A84 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 4C74285F22DCECE800D6E6F9 /* Products */;
 			projectDirPath = "";
@@ -2499,6 +2503,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2AABAE812E682BC100F13A84 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 		2AE0C69D244B83E10021BE28 /* XCRemoteSwiftPackageReference "Preferences" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Preferences";
@@ -2577,6 +2589,11 @@
 		2A8BCF932E674EBE007C1376 /* AEXML */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AEXML;
+		};
+		2AABAE822E682BC100F13A84 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AABAE812E682BC100F13A84 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 		2AE0C69E244B83E10021BE28 /* Preferences */ = {
 			isa = XCSwiftPackageProductDependency;
