@@ -216,14 +216,10 @@ public class ConnectionWindowController: NSWindowController, NSToolbarDelegate, 
         print("windowDidBecomeKey: \(notification.object)")
     }
     
-    
-    
     @IBAction func tabAction(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedToolbarItemChanged"), object: self.window)
     }
-    
-    
-    
+
     @IBAction func disconnect(_ sender: Any) {
         if let item = self.toolbarItem(withIdentifier: "Disconnect") {
             if self.connection.isConnected() {

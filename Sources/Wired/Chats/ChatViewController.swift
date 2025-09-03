@@ -522,6 +522,12 @@ class ChatViewController: ConnectionViewController, ConnectionDelegate, NSTextFi
         self.messagesTableView.noteNumberOfRowsChanged()
         
         self.messagesTableView.scrollToVisible(self.messagesTableView.rect(ofRow: self.messages.count - 1))
+        
+    }
+    
+    @IBAction func clearMessages(_ sender: Any) {
+        self.messages.removeAll()
+        self.messagesTableView.reloadData()
     }
     
 }

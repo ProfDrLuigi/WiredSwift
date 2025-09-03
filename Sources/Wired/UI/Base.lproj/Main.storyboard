@@ -1447,8 +1447,8 @@ DQ
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="fKm-KP-7Xn">
                                 <rect key="frame" x="0.0" y="0.0" width="728" height="49"/>
                                 <subviews>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-Hn-WpC">
-                                        <rect key="frame" x="20" y="14" width="655" height="22"/>
+                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAh-Hn-WpC">
+                                        <rect key="frame" x="20" y="14" width="634" height="22"/>
                                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" placeholderString="Type message here" bezelStyle="round" id="EXA-4v-fXz">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1459,8 +1459,8 @@ DQ
                                             <outlet property="delegate" destination="xE7-fu-zmd" id="c7J-QZ-2P5"/>
                                         </connections>
                                     </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="npg-ZJ-hvi">
-                                        <rect key="frame" x="683" y="14" width="25" height="23"/>
+                                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npg-ZJ-hvi">
+                                        <rect key="frame" x="662" y="14" width="25" height="23"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="Smileys" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="XBh-8B-dds">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1473,12 +1473,28 @@ DQ
                                             <action selector="showEmojis:" target="xE7-fu-zmd" id="Tyj-hV-ah1"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-7h-0T0">
+                                        <rect key="frame" x="691" y="13" width="25" height="24"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="ClearChat" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="4YG-1z-fYz">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Ajb-84-2Xk"/>
+                                            <constraint firstAttribute="height" constant="24" id="lxK-9f-9lh"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="clearMessages:" target="xE7-fu-zmd" id="K0U-aN-pKJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="npg-ZJ-hvi" secondAttribute="trailing" constant="20" id="3cX-64-4uu"/>
+                                    <constraint firstAttribute="trailing" secondItem="npg-ZJ-hvi" secondAttribute="trailing" constant="45" id="3cX-64-4uu"/>
                                     <constraint firstAttribute="bottom" secondItem="npg-ZJ-hvi" secondAttribute="bottom" constant="14" id="4en-rG-G9Z"/>
                                     <constraint firstAttribute="bottom" secondItem="OAh-Hn-WpC" secondAttribute="bottom" constant="14" id="Dw0-X5-ALt"/>
                                     <constraint firstItem="npg-ZJ-hvi" firstAttribute="leading" secondItem="OAh-Hn-WpC" secondAttribute="trailing" constant="8" id="HsQ-nE-4vQ"/>
+                                    <constraint firstItem="YUN-7h-0T0" firstAttribute="top" secondItem="OAh-Hn-WpC" secondAttribute="top" id="Jup-8b-PGh"/>
+                                    <constraint firstItem="YUN-7h-0T0" firstAttribute="leading" secondItem="npg-ZJ-hvi" secondAttribute="trailing" constant="8" id="csi-uv-zNL"/>
                                     <constraint firstItem="OAh-Hn-WpC" firstAttribute="leading" secondItem="fKm-KP-7Xn" secondAttribute="leading" constant="20" id="m7n-Yw-2PF"/>
                                     <constraint firstItem="npg-ZJ-hvi" firstAttribute="top" secondItem="fKm-KP-7Xn" secondAttribute="top" constant="12" id="sXb-8C-ES9"/>
                                     <constraint firstItem="OAh-Hn-WpC" firstAttribute="top" secondItem="fKm-KP-7Xn" secondAttribute="top" constant="13" id="xR9-wM-F3e"/>
@@ -1739,7 +1755,7 @@ DQ
                 </viewController>
                 <customObject id="Wmn-QR-mjL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5261.5" y="-1403"/>
+            <point key="canvasLocation" x="5261" y="-1403"/>
         </scene>
         <!--Messages-->
         <scene sceneID="v7q-yJ-UZS">
@@ -2178,13 +2194,13 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="128" horizontalPageScroll="10" verticalLineScroll="128" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMz-Ay-LBK">
-                                <rect key="frame" x="-1" y="-1" width="682" height="527"/>
+                                <rect key="frame" x="-1" y="-1" width="710" height="531"/>
                                 <clipView key="contentView" id="Tan-dq-K3n">
-                                    <rect key="frame" x="1" y="1" width="680" height="525"/>
+                                    <rect key="frame" x="1" y="1" width="708" height="529"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="126" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="BXd-GW-Awu">
-                                            <rect key="frame" x="0.0" y="0.0" width="680" height="525"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="708" height="529"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2312,7 +2328,7 @@ DQ
                                 </scroller>
                             </scrollView>
                             <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-gA-fIN">
-                                <rect key="frame" x="655" y="534" width="16" height="16"/>
+                                <rect key="frame" x="683" y="538" width="16" height="16"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
@@ -2893,7 +2909,7 @@ DQ
         <scene sceneID="Dt2-7e-tz6">
             <objects>
                 <viewController title="Files" id="DVd-lO-xhs" customClass="FilesViewController" customModule="Wired" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="OSO-On-1Mx">
+                    <view key="view" id="OSO-On-1Mx">
                         <rect key="frame" x="0.0" y="0.0" width="694" height="407"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -4373,6 +4389,7 @@ DQ
     <resources>
         <image name="Boards" width="25" height="25"/>
         <image name="Chat" width="25" height="25"/>
+        <image name="ClearChat" width="32" height="32"/>
         <image name="ClearTransfers" width="25" height="25"/>
         <image name="ConnectionStatusDisconnected" width="16" height="16"/>
         <image name="Console" width="25" height="25"/>
