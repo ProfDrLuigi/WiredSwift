@@ -35,6 +35,9 @@ public class File: ConnectionObject, ConnectionDelegate {
     public var dataTransferred:UInt64 = 0
     public var rsrcTransferred:UInt64 = 0
     
+    public var modified: Date?
+    public var created: Date?
+    
     init(_ path: String, connection: ServerConnection) {
         super.init(connection)
                 
@@ -62,6 +65,12 @@ public class File: ConnectionObject, ConnectionDelegate {
         }
         if let s = message.uint32(forField: "wired.file.directory_count") {
             self.directoryCount = Int(s)
+        }
+        if let date = message.date(forField: "wired.file.modification_time") {
+            self.modified = date
+        }
+        if let date = message.date(forField: "wired.file.creation_time") {
+            self.created = date
         }
     }
 

@@ -44,6 +44,8 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
     var backHistory:[File] = []
     var forwardHistory:[File] = []
     
+    private var files: [File] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,10 +60,7 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
         UserDefaults.standard.addObserver(self, forKeyPath: "WSSelectedFilesViewType", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
-    
-    
-    private var files: [File] = []
-    
+
     func outlineView(_ outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
         guard let sortDescriptor = outlineView.sortDescriptors.first, let key = sortDescriptor.key else { return }
         let ascending = sortDescriptor.ascending
@@ -304,10 +303,20 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
                 view?.textField?.stringValue = f.isFolder() ? "\(f.directoryCount) items" : AppDelegate.byteCountFormatter.string(fromByteCount: Int64(f.dataSize))
             }
             else if tableColumn?.identifier.rawValue == "Modified" {
-                view?.textField?.stringValue = ""
+                if let modifiedDate = f.modified {
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    formatter.timeStyle = .short
+                    view?.textField?.stringValue = formatter.string(from: modifiedDate)
+                }
             }
             else if tableColumn?.identifier.rawValue == "Created" {
-                view?.textField?.stringValue = ""
+                if let createdDate = f.created {
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    formatter.timeStyle = .short
+                    view?.textField?.stringValue = formatter.string(from: createdDate)
+                } 
             }
             else if tableColumn?.identifier.rawValue == "Type" {
                 view?.imageView?.image = nil
