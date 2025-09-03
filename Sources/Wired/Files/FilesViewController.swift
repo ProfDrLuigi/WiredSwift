@@ -59,6 +59,28 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
     }
     
     
+    
+    private var files: [File] = []
+    
+    func outlineView(_ outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        guard let sortDescriptor = outlineView.sortDescriptors.first, let key = sortDescriptor.key else { return }
+        let ascending = sortDescriptor.ascending
+
+        currentRoot.children.sort { (lhs: File, rhs: File) -> Bool in
+            let result: Bool
+            switch key.lowercased() {
+            case "filename":
+                result = (lhs.name ?? "") < (rhs.name ?? "")
+            case "size":
+                result = lhs.dataSize < rhs.dataSize
+            default:
+                result = false
+            }
+            return ascending ? result : !result
+        }
+        outlineView.reloadData()
+    }
+    
     override func viewDidAppear() {
         super.viewDidAppear()
     }
@@ -172,26 +194,13 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
     
     @objc func didLoadDirectory(_ notification: Notification) {
         if let file = notification.object as? File {
-            //let columnIndex = file.path.split(separator: "/").count
-            
-            if self.filesController == nil {
-                return
-            }
-                        
-            // reload outline
             if file == self.currentRoot {
+                self.files = file.children
                 self.outlineView.reloadData()
             } else {
                 self.outlineView.reloadItem(file, reloadChildren: true)
             }
-            
-            // reload browser
-//            if self.browser.lastColumn != -1 {
-//                self.browser.reloadColumn(self.browser.lastColumn)
-//            }
-            
             self.progressIndicator.stopAnimation(self)
-            
             self.validate()
         }
     }
