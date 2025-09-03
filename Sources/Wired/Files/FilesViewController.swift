@@ -69,9 +69,15 @@ class FilesViewController: ConnectionViewController, ConnectionDelegate, NSBrows
         currentRoot.children.sort { (lhs: File, rhs: File) -> Bool in
             let result: Bool
             switch key.lowercased() {
-            case "filename":
+            case "name":
                 result = (lhs.name ?? "") < (rhs.name ?? "")
             case "size":
+                result = lhs.dataSize < rhs.dataSize
+            case "modified":
+                result = lhs.dataSize < rhs.dataSize
+            case "created":
+                result = lhs.dataSize < rhs.dataSize
+            case "type":
                 result = lhs.dataSize < rhs.dataSize
             default:
                 result = false
